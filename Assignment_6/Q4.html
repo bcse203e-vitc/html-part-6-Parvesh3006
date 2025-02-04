@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse a Number</title>
+</head>
+<body>
+    <h1>Reverse a Number</h1>
+    <p>Enter a number to reverse its digits:</p>
+    <input type="number" id="numberInput" />
+    <button onclick="reverseNumber()">Reverse</button>
+    <pre id="output"></pre>
+    <script>
+        function reverseNumber() {
+            const number = document.getElementById('numberInput').value;
+            const reversedNumber = number.split('').reverse().join('');
+            const isPalindromic = (number === reversedNumber);
+            document.getElementById('output').textContent = `Reversed Number: ${reversedNumber}\nIs Palindromic: ${isPalindromic}`;
+        }
+    </script>
+</body>
+</html>
+
