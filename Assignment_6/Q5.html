@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+    <p>Enter a number to count its digits:</p>
+    <input type="number" id="numberInput" />
+    <button onclick="countDigits()">Count Digits</button>
+    <pre id="output"></pre>
+    <script>
+        function countDigits() {
+            const number = document.getElementById('numberInput').value;
+            const digitCount = number.length;
+            document.getElementById('output').textContent = `The number ${number} has ${digitCount} digits.`;
+        }
+    </script>
+</body>
+</html>
