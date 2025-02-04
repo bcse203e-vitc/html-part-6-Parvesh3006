@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>Enter a number :</p>
+    <input type="number" id="numberInput" placeholder="Enter number" />
+    <button onclick="checkArmstrong()">Check</button>
+    <pre id="output"></pre>
+    <script>
+        function checkArmstrong() {
+            const number = document.getElementById('numberInput').value;
+            const digits = number.split('');
+            const numDigits = digits.length;
+            let sum = 0;
+            for (let digit of digits) {
+                sum += Math.pow(parseInt(digit), numDigits);
+            }
+            const isArmstrong = (sum == number);
+            document.getElementById('output').textContent = `${number} is ${isArmstrong ? '' : 'not '}an Armstrong number.`;
+        }
+    </script>
+</body>
+</html>
