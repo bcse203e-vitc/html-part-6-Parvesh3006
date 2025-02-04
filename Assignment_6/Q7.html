@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>Enter the number of terms (N) to generate the Fibonacci sequence:</p>
+    <input type="number" id="numberInput" placeholder="Enter N" />
+    <button onclick="generateFibonacci()">Generate</button>
+    <pre id="output"></pre>
+
+    <script>
+        function generateFibonacci() {
+            const n = parseInt(document.getElementById('numberInput').value);
+            let fibonacciSeries = [];
+
+            // Iterative approach
+            let a = 0, b = 1, nextTerm;
+            for (let i = 0; i < n; i++) {
+                fibonacciSeries.push(a);
+                nextTerm = a + b;
+                a = b;
+                b = nextTerm;
+            }
+
+            document.getElementById('output').textContent = `Fibonacci Series (Iterative): ${fibonacciSeries.join(', ')}`;
+
+            // Recursive approach
+            fibonacciSeries = [];
+            for (let i = 0; i < n; i++) {
+                fibonacciSeries.push(fibonacciRecursive(i));
+            }
+
+            document.getElementById('output').textContent += `\nFibonacci Series (Recursive): ${fibonacciSeries.join(', ')}`;
+        }
+
+        function fibonacciRecursive(n) {
+            if (n <= 1) {
+                return n;
+            }
+            return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+        }
+    </script>
+</body>
+</html>
