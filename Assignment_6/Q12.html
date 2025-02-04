@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>Enter an array of numbers :</p>
+    <input type="text" id="arrayInput" placeholder="e.g., 1,2,2,3,4,4,5" />
+    <button onclick="removeDuplicates()">Remove Duplicates</button>
+    <pre id="output"></pre>
+
+    <script>
+        function removeDuplicates() {
+            const input = document.getElementById('arrayInput').value;
+            const array = input.split(',').map(Number);
+            const uniqueArray = [];
+
+            for (let i = 0; i < array.length; i++) {
+                if (uniqueArray.indexOf(array[i]) === -1) {
+                    uniqueArray.push(array[i]);
+                }
+            }
+
+            document.getElementById('output').textContent = `Original Array: [${array.join(', ')}]\nUnique Array: [${uniqueArray.join(', ')}]`;
+        }
+    </script>
+</body>
+</html>
