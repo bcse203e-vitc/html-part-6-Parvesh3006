@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Checker</title>
+</head>
+<body>
+    <h1>Even or Odd Checker</h1>
+    <p>Enter a number:</p>
+    <input type="number" id="numberInput" />
+    <button onclick="checkEvenOdd()">Check</button>
+    <pre id="output"></pre>
+    <h2>Bonus Challenge</h2>
+    <p>Enter an array of numbers:</p>
+    <input type="text" id="arrayInput" placeholder="e.g., 1,2,3,4,5" />
+    <button onclick="separateEvenOdd()">Separate</button>
+    <pre id="arrayOutput"></pre>
+
+    <script>
+        function checkEvenOdd() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            const result = (number % 2 === 0) ? 'Even' : 'Odd';
+            document.getElementById('output').textContent = `The number ${number} is ${result}.`;
+        }
+        function separateEvenOdd() {
+            const input = document.getElementById('arrayInput').value;
+            const numbers = input.split(',').map(Number);
+            const evenNumbers = numbers.filter(num => num % 2 === 0);
+            const oddNumbers = numbers.filter(num => num % 2 !== 0);
+            document.getElementById('arrayOutput').textContent = `Even Numbers: ${evenNumbers}\nOdd Numbers: ${oddNumbers}`;
+        }
+    </script>
+</body>
+</html>
